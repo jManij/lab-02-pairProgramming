@@ -1,20 +1,15 @@
 'use strict';
 
-// List of all animal objects
-
 $('select').on('change', function() {
-  // alert(this.value);
-  // showing everything at first
-
   if (this.value === 'default') {
     $(`main > section`).show();
-    console.log('im here');
+    $(`main > section:first-child`).hide();
   } else {
     $(`main > section`).show();
 
     let $item = this.value;
+    // eslint-disable-next-line no-unused-vars
     let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
-    console.log('$sectionEls: ', $sectionEls);
   }
 });
 

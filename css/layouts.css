@@ -1,4 +1,25 @@
+main > section:first-child {
+  display: none;
+}
+
 img {
   width: 100px;
-  height:auto;
+  height: auto;
+}
+
+main > section {
+  border: 2px solid black;
+  width: 350px;
+  height: 250px;
+  float: left;
+  overflow: auto;
+/*   padding: 20px; */
+}
+
+footer {
+  clear: both;
+}
+
+header {
+  margin: 10px;
 }
