@@ -1,6 +1,6 @@
 # lab-02-pairProgramming
 
-Manish B KC
+Manish B KC supercoder
 Travis Cox
 
 # Project estimates
@@ -11,7 +11,7 @@ Estimate of time needed to complete: 45min
 
 Start time: 10:28
 
-Finish time:
+Finish time: 10:50
 
 Actual time needed to complete:
 
