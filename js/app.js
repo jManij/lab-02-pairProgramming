@@ -28,13 +28,10 @@ Animal.prototype.filterWithJQuery = function() {
   console.log('animalTemplatehtml: ', animalTemplatehtml);
 
   const $selectEl = $('<option></option>');
-  // $selectEl.find('option').text(this.keyword);
   $selectEl.text(this.keyword);
 
   $('header>select').append($selectEl);
 };
-
-// Animal.filterWithJQuery();
 
 Animal.getAllAnimalsFromFile = () => {
   const filePath = './data/page-1.json';
