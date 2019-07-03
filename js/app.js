@@ -1,6 +1,22 @@
 'use strict';
 
 // List of all animal objects
+
+$('select').on('change', function() {
+  // alert(this.value);
+  // showing everything at first
+
+  if (this.value === 'default') {
+    $(`main > section`).show();
+    console.log('im here');
+  } else {
+    $(`main > section`).show();
+  }
+
+  let $item = this.value;
+  let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
+  console.log('$sectionEls: ', $sectionEls);
+});
 const allAnimals = [];
 
 const Animal = function(title, url, description, keyword, horns) {
@@ -15,6 +31,7 @@ Animal.prototype.renderwithJQuery = function() {
   const animalTemplatehtml = $('#photo-template').html();
   const $newAnimal = $('<section></section>');
   $newAnimal.html(animalTemplatehtml);
+  $newAnimal.attr('value', this.keyword);
 
   $newAnimal.find('h2').text(this.title);
   $newAnimal.find('img').attr('src', this.url);
@@ -24,11 +41,8 @@ Animal.prototype.renderwithJQuery = function() {
 };
 
 Animal.prototype.filterWithJQuery = function() {
-  const animalTemplatehtml = $('#select-template').html();
-  console.log('animalTemplatehtml: ', animalTemplatehtml);
-
   const $selectEl = $('<option></option>');
-  $selectEl.text(this.keyword);
+  $selectEl.attr('value', this.keyword).text(this.keyword);
 
   $('header>select').append($selectEl);
 };
@@ -50,5 +64,3 @@ Animal.getAllAnimalsFromFile = () => {
 };
 
 Animal.getAllAnimalsFromFile();
-// console.log(Animal);
-console.log(allAnimals);
