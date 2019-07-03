@@ -1,11 +1,6 @@
 'use strict';
 
-// List of all animal objects
-
 $('select').on('change', function() {
-  // alert(this.value);
-  // showing everything at first
-
   if (this.value === 'default') {
     $(`main > section`).show();
     $(`main > section:first-child`).hide();
@@ -13,6 +8,7 @@ $('select').on('change', function() {
     $(`main > section`).show();
 
     let $item = this.value;
+    // eslint-disable-next-line no-unused-vars
     let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
   }
 });
