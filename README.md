@@ -1,6 +1,6 @@
 # lab-02-pairProgramming
 
-Manish B KC
+Manish B KC SuperCoder
 Travis Cox
 
 # Project estimates
