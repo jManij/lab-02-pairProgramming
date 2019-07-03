@@ -8,13 +8,12 @@ $('select').on('change', function() {
 
   if (this.value === 'default') {
     $(`main > section`).show();
-    console.log('im here');
+    $(`main > section:first-child`).hide();
   } else {
     $(`main > section`).show();
 
     let $item = this.value;
     let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
-    console.log('$sectionEls: ', $sectionEls);
   }
 });
 
