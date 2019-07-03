@@ -9,9 +9,9 @@ Number and name of feature: Display Images
 
 Estimate of time needed to complete: 45min
 
-Start time:
+Start time: 10:28
 
-Finish time:
+Finish time: 10:50
 
 Actual time needed to complete:
 
