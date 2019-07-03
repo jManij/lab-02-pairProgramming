@@ -11,12 +11,13 @@ $('select').on('change', function() {
     console.log('im here');
   } else {
     $(`main > section`).show();
-  }
 
-  let $item = this.value;
-  let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
-  console.log('$sectionEls: ', $sectionEls);
+    let $item = this.value;
+    let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
+    console.log('$sectionEls: ', $sectionEls);
+  }
 });
+
 const allAnimals = [];
 
 const Animal = function(title, url, description, keyword, horns) {
