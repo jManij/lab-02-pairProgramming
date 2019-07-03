@@ -20,7 +20,7 @@ Number and name of feature: Filter Images
 
 Estimate of time needed to complete:
 
-Start time:
+Start time: 10:56
 
 Finish time:
 

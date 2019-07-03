@@ -3,7 +3,7 @@
 // List of all animal objects
 const allAnimals = [];
 
-const Animal = function (title, url, description, keyword, horns) {
+const Animal = function(title, url, description, keyword, horns) {
   this.title = title;
   this.url = url;
   this.description = description;
@@ -11,7 +11,7 @@ const Animal = function (title, url, description, keyword, horns) {
   this.horns = horns;
 };
 
-Animal.prototype.renderwithJQuery = function () {
+Animal.prototype.renderwithJQuery = function() {
   const animalTemplatehtml = $('#photo-template').html();
   const $newAnimal = $('<section></section>');
   $newAnimal.html(animalTemplatehtml);
@@ -20,40 +20,38 @@ Animal.prototype.renderwithJQuery = function () {
   $newAnimal.find('img').attr('src', this.url);
   $newAnimal.find('p').text(this.description);
 
-
   $('main').append($newAnimal);
+};
 
-}
+Animal.prototype.filterWithJQuery = function() {
+  const animalTemplatehtml = $('#select-template').html();
+  console.log('animalTemplatehtml: ', animalTemplatehtml);
+
+  const $selectEl = $('<option></option>');
+  // $selectEl.find('option').text(this.keyword);
+  $selectEl.text(this.keyword);
+
+  $('header>select').append($selectEl);
+};
+
+// Animal.filterWithJQuery();
 
 Animal.getAllAnimalsFromFile = () => {
   const filePath = './data/page-1.json';
   const fileType = 'json';
   $.get(filePath, fileType).then(myAnimalJSON => {
     myAnimalJSON.forEach(animal => {
-<<<<<<< HEAD
-      new Animal(animal.title, animal.url, animal.description, animal.keyword, animal.horns);
-    });
-  });
-};
-
-Animal.getAllAnimalsFromFile();
-// console.log('Animal.getAllAnimalsFromFile();: ', Animal.getAllAnimalsFromFile());
-=======
       // new Animal(animal.title, animal.url, animal.description, animal.keyword, animal.horns);
       allAnimals.push(new Animal(animal.title, animal.image_url, animal.description, animal.keyword, animal.horns));
     });
 
     allAnimals.forEach(animal => {
       animal.renderwithJQuery();
-
+      animal.filterWithJQuery();
     });
-
   });
 };
-
-
 
 Animal.getAllAnimalsFromFile();
 // console.log(Animal);
 console.log(allAnimals);
->>>>>>> 6cde711efd19f90fb058751b1a4a6f38f89bd1e3
