@@ -23,17 +23,15 @@ const Animal = function(title, url, description, keyword, horns) {
   this.horns = horns;
 };
 
-Animal.prototype.renderwithJQuery = function() {
-  const animalTemplatehtml = $('#photo-template').html();
-  const $newAnimal = $('<section></section>');
-  $newAnimal.html(animalTemplatehtml);
-  $newAnimal.attr('value', this.keyword);
+Animal.prototype.renderwithHandlebars = function() {
+  var source = document.getElementById('photo-template').innerHTML;
+  var template = Handlebars.compile(source);
 
-  $newAnimal.find('h2').text(this.title);
-  $newAnimal.find('img').attr('src', this.url);
-  $newAnimal.find('p').text(this.description);
+  // pass in object here
+  var context = { title: this.title, url: this.url, description: this.description, keyword: this.keyword, horns: this.horns };
+  var html = template(context);
 
-  $('main').append($newAnimal);
+  $('main').prepend(html);
 };
 
 Animal.prototype.filterWithJQuery = function() {
@@ -55,10 +53,12 @@ Animal.getAllAnimalsFromFile = () => {
     });
 
     allAnimals.forEach(animal => {
-      animal.renderwithJQuery();
+      animal.renderwithHandlebars();
       animal.filterWithJQuery();
     });
   });
 };
 
 Animal.getAllAnimalsFromFile();
+
+// =============================================================
