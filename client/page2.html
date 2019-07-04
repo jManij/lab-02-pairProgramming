@@ -11,6 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body id="page2">
+    <script id="photo-template" type="text/x-handlebars-template">
+      <div>
+          <h2>{{title}}</h2>
+          <p>{{description}}</p>
+          <img src="{{url}}">
+        </div>
+    </script>
     <header>
       <h1>The Gallery of Horns</h1>
       <select id="select-template">
@@ -33,6 +40,7 @@
       &copy; 2018 Code Fellows
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
     <script type="text/javascript" src="../js/app.js"></script>
   </body>
 </html>
