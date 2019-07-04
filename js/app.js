@@ -44,7 +44,9 @@ Animal.prototype.filterWithJQuery = function() {
 };
 
 Animal.getAllAnimalsFromFile = () => {
-  const filePath = './data/page-1.json';
+  // logic that id's the page we are on
+  const filePath = $('body').attr('id') === 'index' ? './data/page-1.json' : '../data/page-2.json';
+
   const fileType = 'json';
   $.get(filePath, fileType).then(myAnimalJSON => {
     myAnimalJSON.forEach(animal => {
