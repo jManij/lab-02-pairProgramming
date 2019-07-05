@@ -58,3 +58,14 @@ Start time: 11:30
 Finish time: 11:49
 
 Actual time needed to complete: 19 mins
+
+==============================================
+Number and name of feature: Style with Flexbox
+
+Estimate of time needed to complete: 2 hours
+
+Start time:
+
+Finish time:
+
+Actual time needed to complete:
