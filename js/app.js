@@ -1,7 +1,7 @@
 'use strict';
 
-// shows and hides elements based on selection
-$('select').on('change', function() {
+// shows and hides elements based on name selection
+$('header > select#select-template').on('change', function() {
   // hides default value
   if (this.value === 'default') {
     $(`main > section`).show();
@@ -13,10 +13,27 @@ $('select').on('change', function() {
     let $item = this.value;
 
     // eslint-disable-next-line no-unused-vars
-    // hides values not selected
-    let $sectionEls = $(`main > section:not([value=${$item}])`).hide();
+    $(`main > section:not([value=${$item}])`).hide();
   }
 });
+
+// // shows and hides elements based on number of horns selection
+// $('header > select#select-options').on('change', function() {
+//   // hides default value
+//   if (this.value === 'default2') {
+//     $(`main > section`).show();
+//     $(`main > section:first-child`).hide();
+//   } else {
+//     // shows selected images
+//     $(`main > select`).show();
+
+//     let $options = this.value;
+//     console.log('$options: ', $options);
+
+//     // eslint-disable-next-line no-unused-vars
+//     $(`main > section:not([id=${$options}])`).hide();
+//   }
+// });
 
 let filePath = './data/page-1.json';
 
@@ -28,19 +45,21 @@ $('a').on('click', function(event) {
   $('header > select#select-template').empty();
   $('header > select#select-options').empty();
 
+  // keeps default behavior of option list
   const setTypeLabel = () => {
     const $typeLabel = $('<option></option');
     $typeLabel.attr('value', 'default').text('Filter by Keyword');
     $('header > select#select-template').append($typeLabel);
   };
 
+  // keeps default behavior of option list
   const setOptionsLabel = () => {
     const $optionsLabel = $('<option></option');
     $optionsLabel.attr('value', 'default2').text('Filter by Horns');
     $('header > select#select-options').append($optionsLabel);
   };
 
-  console.log('a on click');
+  // Make changes when switching pages
   if (filePath === './data/page-1.json') {
     $('a').text('Page 2');
     $('main').empty();
@@ -99,8 +118,6 @@ Animal.prototype.filterWithJQuery = function() {
 
 Animal.getAllAnimalsFromFile = () => {
   // logic that id's the page we are on
-
-  console.log('get animals filePath: ', filePath);
 
   const fileType = 'json';
   $.get(filePath, fileType).then(myAnimalJSON => {
