@@ -71,11 +71,11 @@ Finish time: 1:48
 Actual time needed to complete: 13 min.
 
 ==============================================
-Number and name of feature: Style with Flexbox
+Number and name of feature: Sort the images
 
 Estimate of time needed to complete: 2 hours
 
-Start time: 1:53
+Start time: 2:40
 
 Finish time:
 
