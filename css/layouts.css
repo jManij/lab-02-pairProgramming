@@ -2,14 +2,17 @@ main > section:first-child {
   display: none;
 }
 
+a {
+  font-size: 1.5em;
+}
 main > section {
-  border: 2px solid black;
+/*   border: 2px solid black; */
   width: 350px;
   height: 250px;
   float: left;
   overflow: auto;
-  /*   padding: 20px; */
-}
+  padding: 20px;
+} 
 
 footer {
   clear: both;
@@ -17,4 +20,10 @@ footer {
 
 header {
   margin: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
