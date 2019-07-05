@@ -10,13 +10,13 @@
     <title>The Gallery of Horns</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body id="index">
+  <body>
     <script id="photo-template" type="text/x-handlebars-template">
-      <div>
+      <section value="{{keyword}}">
           <h2>{{title}}</h2>
-          <p>{{description}}</p>
           <img src="{{url}}">
-        </div>
+          <p>{{description}}</p>
+        </section>
     </script>
     <header>
       <h1>The Gallery of Horns</h1>
@@ -25,7 +25,7 @@
       </select>
       <nav>
         <ul>
-          <li><a href="./client/page2.html">Page 2</a></li>
+          <li><a href="">Home</a></li>
         </ul>
       </nav>
     </header>

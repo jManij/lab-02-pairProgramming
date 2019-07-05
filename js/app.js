@@ -13,7 +13,29 @@ $('select').on('change', function() {
   }
 });
 
-const allAnimals = [];
+let filePath = './data/page-1.json';
+
+$('a').on('click', function(event) {
+  event.preventDefault();
+  console.log('a on click');
+  if (filePath === './data/page-1.json') {
+    $('a').text('Page 2');
+    $('main').empty();
+    allAnimals = [];
+    filePath = './data/page-2.json';
+    Animal.getAllAnimalsFromFile();
+    console.log('filePath page 1: ', filePath);
+  } else {
+    filePath = './data/page-1.json';
+    $('a').text('Home');
+    $('main').empty();
+    allAnimals = [];
+    Animal.getAllAnimalsFromFile();
+    console.log('filePath page 2: ', filePath);
+  }
+});
+
+let allAnimals = [];
 
 const Animal = function(title, url, description, keyword, horns) {
   this.title = title;
@@ -30,7 +52,6 @@ Animal.prototype.renderwithHandlebars = function() {
   // pass in object here
   var context = { title: this.title, url: this.url, description: this.description, keyword: this.keyword, horns: this.horns };
   var html = template(context);
-
   $('main').prepend(html);
 };
 
@@ -43,7 +64,8 @@ Animal.prototype.filterWithJQuery = function() {
 
 Animal.getAllAnimalsFromFile = () => {
   // logic that id's the page we are on
-  const filePath = $('body').attr('id') === 'index' ? './data/page-1.json' : '../data/page-2.json';
+  // const filePath = $('body').attr('id') === 'index' ? './data/page-1.json' : '../data/page-2.json';
+  console.log('get animals filePath: ', filePath);
 
   const fileType = 'json';
   $.get(filePath, fileType).then(myAnimalJSON => {
