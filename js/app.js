@@ -3,6 +3,7 @@
 // shows and hides elements based on name selection
 $('header > select#select-template').on('change', function() {
   // hides default value
+  $(`main > section`).show();
   if (this.value === 'default') {
     $(`main > section`).show();
     $(`main > section:first-child`).hide();
@@ -11,29 +12,30 @@ $('header > select#select-template').on('change', function() {
     $(`main > select`).show();
 
     let $item = this.value;
+    console.log('$item: ', $item);
 
-    // eslint-disable-next-line no-unused-vars
     $(`main > section:not([value=${$item}])`).hide();
   }
 });
 
-// // shows and hides elements based on number of horns selection
-// $('header > select#select-options').on('change', function() {
-//   // hides default value
-//   if (this.value === 'default2') {
-//     $(`main > section`).show();
-//     $(`main > section:first-child`).hide();
-//   } else {
-//     // shows selected images
-//     $(`main > select`).show();
+// shows and hides elements based on number of horns selection
+$('header > select#select-options').on('change', function() {
+  $(`main > section`).show();
+  // hides default value
+  if (this.value === 'default2') {
+    $(`main > section`).show();
+    $(`main > section:first-child`).hide();
+  } else {
+    // shows selected images
+    $(`main > select`).show();
 
-//     let $options = this.value;
-//     console.log('$options: ', $options);
+    let $options = this.value;
+    console.log('$options: ', $options);
 
-//     // eslint-disable-next-line no-unused-vars
-//     $(`main > section:not([id=${$options}])`).hide();
-//   }
-// });
+    // eslint-disable-next-line no-unused-vars
+    $(`main > section:not([id=${$options}])`).hide();
+  }
+});
 
 let filePath = './data/page-1.json';
 
@@ -41,7 +43,7 @@ let filePath = './data/page-1.json';
 $('a').on('click', function(event) {
   event.preventDefault();
 
-  // clears out options list
+  // clears out options list when switching pages
   $('header > select#select-template').empty();
   $('header > select#select-options').empty();
 
